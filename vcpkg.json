@@ -1,0 +1,48 @@
+{
+  "name": "sf4e",
+  "version-string": "0.0.1",
+  "dependencies": [
+    {
+      "name": "cli11",
+      "version>=": "2.4.2"
+    },
+    {
+      "name": "detours",
+      "version>=": "4.0.1#7"
+    },
+    {
+      "name": "gamenetworkingsockets",
+      "version>=": "1.4.1#1"
+    },
+    {
+      "name": "ggpo",
+      "version>=": "1.0.0#1"
+    },
+    {
+      "name": "imgui",
+      "version>=": "1.91.5",
+      "features": [
+        "dx9-binding",
+        "win32-binding"
+      ]
+    },
+    {
+      "name": "nlohmann-json",
+      "version>=": "3.11.2"
+    },
+    {
+      "name": "spdlog",
+      "version>=": "1.11.0",
+      "features": [
+        "wchar"
+      ]
+    },
+    {
+      "name": "valvefilevdf",
+      "version>=": "1.0.0#1"
+    },
+    "webview2",
+    "wil"
+  ],
+  "builtin-baseline": "fafcc0e93bfba303e5e48790def745d27e6d449b"
+}

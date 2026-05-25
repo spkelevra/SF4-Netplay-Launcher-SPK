@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SF4 Enhanced</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <h1>SF4 Enhanced</h1>
+      <p class="subtitle">Ultra Street Fighter IV — rollback netplay (sf4e fork)</p>
+    </header>
+
+    <div id="toast" class="toast hidden"></div>
+
+    <section id="screen-home" class="screen active">
+      <div class="card-grid">
+        <button type="button" class="mode-card" data-mode="host">
+          <span class="mode-card-title">Host</span>
+          <span class="mode-card-desc">Start a session and share a room code</span>
+        </button>
+        <button type="button" class="mode-card" data-mode="join">
+          <span class="mode-card-title">Join</span>
+          <span class="mode-card-desc">Connect to a host's IP:port</span>
+        </button>
+        <button type="button" class="mode-card mode-card-muted" data-mode="offline">
+          <span class="mode-card-title">Offline</span>
+          <span class="mode-card-desc">Launch without netplay</span>
+        </button>
+      </div>
+      <div class="coming-soon">
+        <div class="coming-soon-card disabled">
+          <strong>Find match</strong>
+          <span>Matchmaking — coming soon</span>
+        </div>
+        <div class="coming-soon-card disabled">
+          <strong>Auto NAT</strong>
+          <span>Automatic traversal — coming soon</span>
+        </div>
+      </div>
+      <p class="footer-hint">Logs: run <code>Launcher.exe --console</code></p>
+    </section>
+
+    <section id="screen-host" class="screen">
+      <button type="button" class="back-btn" data-back>← Back</button>
+      <h2>Host a game</h2>
+      <label class="field">
+        <span>Display name</span>
+        <input id="host-name" type="text" maxlength="31" />
+      </label>
+      <label class="field field-inline">
+        <span>Input delay (frames)</span>
+        <input id="host-delay" type="number" min="1" max="20" />
+      </label>
+      <label class="field field-inline">
+        <span>Session port</span>
+        <input id="host-port" type="number" min="1" max="65535" />
+      </label>
+      <div class="info-row">
+        <span class="badge">LAN</span>
+        <code id="host-lan-code">—</code>
+      </div>
+      <label class="field">
+        <span>Internet address (share with remote joiners)</span>
+        <div class="row">
+          <input id="host-advertise" type="text" />
+          <button type="button" id="btn-refresh-ip" class="btn-secondary">Refresh</button>
+        </div>
+      </label>
+      <div class="room-code-box">
+        <span class="room-code-label">Room code to share</span>
+        <code id="host-room-preview" class="room-code-value">—</code>
+        <button type="button" id="btn-copy-room" class="btn-primary">Copy room code</button>
+      </div>
+      <ul class="checklist">
+        <li>Forward this port on your router (TCP and UDP)</li>
+        <li>Allow the port in Windows Firewall</li>
+        <li>Remote joiners need your <strong>public</strong> or VPN IP (not 192.168.x.x)</li>
+      </ul>
+      <button type="button" id="btn-start-host" class="btn-primary btn-large">Start game</button>
+    </section>
+
+    <section id="screen-join" class="screen">
+      <button type="button" class="back-btn" data-back>← Back</button>
+      <h2>Join a game</h2>
+      <label class="field">
+        <span>Display name</span>
+        <input id="join-name" type="text" maxlength="31" />
+      </label>
+      <label class="field">
+        <span>Host address (paste room code)</span>
+        <input id="join-address" type="text" placeholder="203.0.113.42:23456" />
+      </label>
+      <p class="hint">Use the host's public or VPN IP. LAN codes only work on the same network.</p>
+      <label class="field field-inline">
+        <span>Input delay (frames)</span>
+        <input id="join-delay" type="number" min="1" max="20" />
+      </label>
+      <button type="button" id="btn-start-join" class="btn-primary btn-large">Start game</button>
+    </section>
+
+    <section id="screen-offline" class="screen">
+      <button type="button" class="back-btn" data-back>← Back</button>
+      <h2>Offline</h2>
+      <p>Launch USF4 with sf4e hooks but no netplay session.</p>
+      <button type="button" id="btn-start-offline" class="btn-primary btn-large">Start game</button>
+    </section>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
